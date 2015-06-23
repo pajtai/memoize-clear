@@ -11,10 +11,10 @@ memoization functionality from https://github.com/addyosmani/memoize.js
 
 To memoize a function, `require('memoize-clear')`, and used the returned function to curry:
 
-    ```javascript
-    var memoize = require('memoize-clear'),
-        memoized = memoize(function() { ... });
-    ```
+```javascript
+var memoize = require('memoize-clear'),
+    memoized = memoize(function() { ... });
+```
 
 To clear the cache of one function, call `.__clear()` on that memoized function.
 To clear the cache for all functions call `.cleaCache()` on memoize itself.
