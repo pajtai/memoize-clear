@@ -4,9 +4,9 @@ memoize-clear is a standard memoization utility with the exception that the cach
 memoized functions:
 
     npm install --save memoize-clear
-    
+
 memoization functionality from https://github.com/addyosmani/memoize.js
-    
+
 ## api
 
 To memoize a function, `require('memoize-clear')`, and used the returned function to curry:
@@ -17,14 +17,15 @@ var memoize = require('memoize-clear'),
 ```
 
 To clear the cache of one function, call `.__clear()` on that memoized function.
-To clear the cache for all functions call `.cleaCache()` on memoize itself.
+You can also clear the cache of on function by passing it into `memoize.clearCache(the function whose cache you want to clear)`.
+To clear the cache for all functions call `.clearCache()` on memoize itself.
 
 ```javascript
 var memoize = require('memoize'),
     storehouse = 1,
     memoized1 = memoize(function() { return storehouse; }),
     memoized2 = memoize(function() { return 2 * storehouse; });
-    
+
 memoized1(); // 1
 memoized2(); // 2
 

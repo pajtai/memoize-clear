@@ -2,7 +2,7 @@
 
 var funcs = [];
 
-memoize.clearCache = cleaCache;
+memoize.clearCache = clearCache;
 
 module.exports = memoize;
 
@@ -23,8 +23,16 @@ function memoize(func) {
     return cachedfun;
 }
 
-function cleaCache() {
-    funcs.forEach(function(func) {
-        func.__clear();
-    });
+function clearCache(fengShui) {
+    if(fengShui) {
+        funcs.forEach(function(func) {
+            if(fengShui === func) {
+                func.__clear();
+            }
+        });
+    } else {
+        funcs.forEach(function(func) {
+            func.__clear();
+        });
+    }
 };

@@ -52,4 +52,29 @@ describe('memoize', function() {
         f2().should.equal(200);
         f3().should.equal(300);
     });
+
+    it('can clear the cache of just one function if function is passed to memoize.clearCache', function() {
+        var db1 = 1, db2 = 2, db3 = 3,
+            functionToMemoize = function() {
+                return db3;
+            },
+            f1 = memoize(function() { return db1; }),
+            f2 = memoize(function() { return db2; });
+
+        functionToMemoize = memoize(functionToMemoize);
+
+        f1().should.equal(1);
+        f1().should.equal(1);
+        f2().should.equal(2);
+        f2().should.equal(2);
+        functionToMemoize().should.equal(3);
+        functionToMemoize().should.equal(3);
+
+        memoize.clearCache(functionToMemoize);
+        db3 = 300;
+
+        f1().should.equal(1);
+        f2().should.equal(2);
+        functionToMemoize().should.equal(300);
+    });
 });

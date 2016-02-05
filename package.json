@@ -1,6 +1,6 @@
 {
   "name": "memoize-clear",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Memoize functionality with ability to clear all caches.",
   "main": "index.js",
   "scripts": {
