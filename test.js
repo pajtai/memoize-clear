@@ -69,7 +69,7 @@ describe('memoize', function() {
         f3().should.equal(3);
         f3().should.equal(3);
 
-        memoize.clearCache(functionToMemoize);
+        memoize.clearCache(f3);
 
         db1 = 100;
         db2 = 200;
@@ -77,6 +77,6 @@ describe('memoize', function() {
 
         f1().should.equal(1);
         f2().should.equal(2);
-        functionToMemoize().should.equal(300);
+        f3().should.equal(300);
     });
 });
