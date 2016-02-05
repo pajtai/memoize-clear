@@ -59,18 +59,20 @@ describe('memoize', function() {
                 return db3;
             },
             f1 = memoize(function() { return db1; }),
-            f2 = memoize(function() { return db2; });
-
-        functionToMemoize = memoize(functionToMemoize);
+            f2 = memoize(function() { return db2; }),
+            f3 = memoize(functionToMemoize);
 
         f1().should.equal(1);
         f1().should.equal(1);
         f2().should.equal(2);
         f2().should.equal(2);
-        functionToMemoize().should.equal(3);
-        functionToMemoize().should.equal(3);
+        f3().should.equal(3);
+        f3().should.equal(3);
 
         memoize.clearCache(functionToMemoize);
+
+        db1 = 100;
+        db2 = 200;
         db3 = 300;
 
         f1().should.equal(1);
